@@ -26,7 +26,7 @@ export default class Header extends React.Component {
 		return (
 			<div>
 				<h2 className='header-widget'>Filtrar Noticias</h2>
-				<select onChange={this.handleChangeNews}>{Menu}</select>
+				{/* <select onChange={this.handleChangeNews}>{Menu}</select> */}
 			</div>
 		);
 	}

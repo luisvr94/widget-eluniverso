@@ -11,22 +11,26 @@ module.exports = {
 	menu: [
 		{
 			codigo: 0,
-			name: 'Noticias'
+			name: 'Todas'
 		},
 		{
 			codigo: 1,
-			name: 'Guayaquil'
+			name: 'Noticias'
 		},
 		{
 			codigo: 2,
-			name: 'Deportes'
+			name: 'Guayaquil'
 		},
 		{
 			codigo: 3,
-			name: 'Entretenimiento'
+			name: 'Deportes'
 		},
 		{
 			codigo: 4,
+			name: 'Entretenimiento'
+		},
+		{
+			codigo: 5,
 			name: 'La revista'
 		}
 	]
