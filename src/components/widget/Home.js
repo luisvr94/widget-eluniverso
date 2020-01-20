@@ -20,11 +20,12 @@ class Home extends React.Component {
 		});
 	};
 	render() {
-		const Menu = this.state.menu.map((item, index) => (
+		const Options = this.state.menu.map((item, index) => (
 			<option key={index} value={item.codigo}>
 				{item.name}
 			</option>
 		));
+
 		return (
 			<div>
 				<Header />
@@ -32,7 +33,7 @@ class Home extends React.Component {
 					onChange={this.handleChangeNews}
 					value={this.state.selectedMenu}
 				>
-					{Menu}
+					{Options}
 				</select>
 				<div className='panel-pane pane-block pane-block-823 widget pane-block widget'>
 					<TitleWidget />

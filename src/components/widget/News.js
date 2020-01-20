@@ -21,31 +21,6 @@ class News extends React.Component {
 			},
 			() => {
 				this.loadNews();
-				// let paginas = this.state.pages;
-				// let paginasFiltradas = [];
-				// console.log('this.state.categoria',this.state.categoria);
-				// let seccion = GLOBAL.menu.filter(m => {
-				// 	return (m.codigo === this.state.categoria);
-				// });
-				// console.log('seccion', seccion);
-				// if (this.state.categoria !== 0 && this.state.categoria) {
-				// 	paginasFiltradas = paginas.filter(p => {
-				// 		return p.sections.includes(seccion[0].name.toLowerCase());
-				// 	});
-				// 	this.setState({
-				// 		pages: paginasFiltradas.slice(0, GLOBAL.limit_news_masleidas),
-				// 		showContentWidget: true
-				// 	},()=>{
-				// 		console.log('pages', this.state.pages);
-				// 	});
-				// }else{
-				// 	this.setState({
-				// 		pages:paginas,
-				// 		showContentWidget: true
-				// 	},()=>{
-				// 		console.log('pages', this.state.pages);
-				// 	});
-				// }
 			}
 		);
 	}
@@ -53,20 +28,15 @@ class News extends React.Component {
 	loadNews() {
 		getNews()
 			.then(res => {
-				console.log('res', res.data.pages);
-             console.log('categoria', this.state.categoria);
-			 
 				let MasLeidas = [];
 				let arrayNoticias = [];
 				//ORDENAR ARRAY
 				MasLeidas = res.data.pages.sort(this.compare);
+
 				let seccion = GLOBAL.menu.filter(m => {
-					console.log('m.codigo ', m.codigo);
-					
 					return m.codigo === this.state.categoria;
 				});
-				console.log('seccion', seccion);
-				
+
 				arrayNoticias = MasLeidas.filter(noticia => {
 					if (this.state.categoria !== null && this.state.categoria !== 0) {
 						return (
@@ -74,13 +44,10 @@ class News extends React.Component {
 							noticia.sections.includes(seccion[0].name.toLowerCase())
 						);
 					} else {
-						console.log("WWWW");
-						
 						return noticia.stats.article !== 0;
 					}
 				});
-				console.log('arrayNoticias', arrayNoticias);
-				
+
 				this.setState({
 					pages: arrayNoticias.slice(0, GLOBAL.limit_news_masleidas),
 					showContentWidget: true
@@ -110,9 +77,7 @@ class News extends React.Component {
 		return (
 			<div id='div_iframe_lomas_chartbeat' className='pane-lo-mas'>
 				{pages && <ul className='list border rank'>{pages}</ul>}
-				{
-					pages.length===0 && <h2>No hay noticias...</h2>
-				}
+				{pages.length === 0 && <h2>No hay noticias...</h2>}
 			</div>
 		);
 	}
