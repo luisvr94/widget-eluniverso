@@ -109,7 +109,10 @@ class News extends React.Component {
 
 		return (
 			<div id='div_iframe_lomas_chartbeat' className='pane-lo-mas'>
-				<ul className='list border rank'>{pages}</ul>
+				{pages && <ul className='list border rank'>{pages}</ul>}
+				{
+					pages.length===0 && <h2>No hay noticias...</h2>
+				}
 			</div>
 		);
 	}
